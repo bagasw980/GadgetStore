@@ -1,3 +1,5 @@
+<%@page import="database.BarangConnection"%>
+<%@page import="database.MerkConnection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -35,8 +37,8 @@
 							<li><a class="dropdown-item" href="/GadgetStore">Home</a></li>
 							<li><a class="dropdown-item" href="/GadgetStore/list-barang">List
 									Barang</a></li>
-							<li><a class="dropdown-item" href="/GadgetStore/tambah-barang">Input
-									Barang</a></li>
+							<li><a class="dropdown-item"
+								href="/GadgetStore/tambah-barang">Input Barang</a></li>
 						</ul></li>
 				</ul>
 			</div>
@@ -106,32 +108,44 @@
 			<div class="row list"></div>
 		</div>
 	</section>
-
+	<%
+	MerkConnection merk = new MerkConnection();
+	int jmlDataMerk = merk.getDataMerk().size();
+	for (int i = 0; i < jmlDataMerk; i++) {
+	%>
 	<section class="bg-white mt-5 py-3">
 		<div class="container">
 			<div class="row">
 				<h2>
-					<?php echo $list['merk']; ?>
+					<%
+					out.print(merk.getDataMerk().get(i).getMerk());
+					%>
 				</h2>
 			</div>
 			<div class="row list">
-				<?php
-                    $currentMerk = $list['id_merk'];
-                    $data = mysqli_query($koneksi, "SELECT * FROM list_barang WHERE id_merk=$currentMerk");
-                    foreach ($data as $items) { ?>
+				<%
+				BarangConnection barang = new BarangConnection();
+				int jmlData = barang.getDataBarangMerk(merk.getDataMerk().get(i).getId_merk()).size();
+				for (int j = 0; j < jmlData; j++) {
+				%>
 				<div class="produk-list">
-					<a href="detail-produk.php?id=<?php echo $items['id_barang'] ?>">
-						<img src="assets/img/<?php echo $items['gambar'] ?>" alt="">
+					<a href="detail-barang?id=<% out.print(barang.getDataBarangMerk(merk.getDataMerk().get(i).getId_merk()).get(j).getId_barang()); %>">
+						<img src="assets/img/<% out.print(barang.getDataBarangMerk(merk.getDataMerk().get(i).getId_merk()).get(j).getGambar()); %>" alt="">
 						<p class="name-desc">
-							<?php echo $items['nama_barang'] ?>
+							<% out.print(barang.getDataBarangMerk(merk.getDataMerk().get(i).getId_merk()).get(j).getNama_barang()); %>
 						</p>
 						<p class="price-desc"></p>
 					</a>
 				</div>
-				<?php } ?>
+				<%
+				}
+				%>
 			</div>
 		</div>
 	</section>
+	<%
+	}
+	%>
 	<script src="assets/js/jquery-3.6.0.min.js"></script>
 	<script src="assets/js/bootstrap.bundle.min.js"></script>
 	<script src="assets/slick/slick.min.js"></script>
