@@ -75,7 +75,7 @@ public class BarangConnection {
 	}
 
 	public ArrayList<Barang> getDataBarangMerk(String i) {
-		ResultSet sd = conn.getResult("SELECT * FROM list_barang WHERE id_merk="+i);
+		ResultSet sd = conn.getResult("SELECT * FROM list_barang WHERE id_merk=" + i);
 		try {
 			while (sd.next()) {
 				Barang barang = new Barang();
@@ -99,7 +99,7 @@ public class BarangConnection {
 		}
 		return dataBarang;
 	}
-	
+
 	public void createDataBarang(Barang barang) {
 		String query = "INSERT INTO `list_barang` (`id_barang`, `nama_barang`, `id_merk`, `kondisi`, `berat`, `stok`, `diskon`, `harga`, `hargadiskon`, `gambar`, `deskripsi`, `tgl_upload`) VALUES (NULL, '"
 				+ barang.getNama_barang() + "', '" + barang.getId_merk() + "', '" + barang.getKondisi() + "', '"
@@ -122,8 +122,7 @@ public class BarangConnection {
 				+ barang.getId_merk() + "', `kondisi` = '" + barang.getKondisi() + "', `berat` = '" + barang.getBerat()
 				+ "', `stok` = '" + barang.getStok() + "', `diskon` = '" + barang.getDiskon() + "', `harga` = '"
 				+ barang.getHarga() + "', `hargadiskon` = '" + barang.getHargadiskon() + "', `deskripsi` = '"
-				+ barang.getDeskripsi() + "', `tgl_upload` = '" + barang.getTgl_upload()
-				+ "' WHERE `list_barang`.`id_barang` = " + barang.getId_barang() + ";";
+				+ barang.getDeskripsi() + "' WHERE `list_barang`.`id_barang` = " + barang.getId_barang() + ";";
 		try {
 			st = conn.con.createStatement();
 			st.executeUpdate(query);

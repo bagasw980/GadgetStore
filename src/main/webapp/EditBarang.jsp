@@ -12,18 +12,45 @@ BarangConnection barang = new BarangConnection();
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Input Data</title>
+<title>Edit Data</title>
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 </head>
 
 <body>
+	<nav
+		class="navbar navbar-expand-md navbar-dark bg-dark py-md-3 position-fixed fixed-top">
+		<div class="container-md">
+			<a href="/GadgetStore" class="navbar-brand">Gadget Store</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNav1"
+				aria-controls="navbarNav1" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse ms-3" id="navbarNav1">
+				<ul class="navbar-nav">
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown1"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Pages </a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+							<li><a class="dropdown-item" href="/GadgetStore">Home</a></li>
+							<li><a class="dropdown-item" href="/GadgetStore/list-barang">List
+									Barang</a></li>
+							<li><a class="dropdown-item"
+								href="/GadgetStore/tambah-barang">Input Barang</a></li>
+						</ul></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 	<main class="mt-5 py-5">
 		<div class="container">
 			<h1 class="text-center mb-3">Edit Barang</h1>
 			<div class="row">
 				<div class="col-md-6 mx-auto">
-					<form enctype="multipart/form-data" action="update-data.php"
+					<form action="/GadgetStore/edit-barang"
 						method="POST">
 						<div class="mb-3">
 							<label for="merk" class="form-label">Merk</label> <select

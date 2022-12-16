@@ -19,6 +19,33 @@
 </head>
 
 <body>
+	<nav
+		class="navbar navbar-expand-md navbar-dark bg-dark py-md-3 position-fixed fixed-top">
+		<div class="container-md">
+			<a href="/GadgetStore" class="navbar-brand">Gadget Store</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNav1"
+				aria-controls="navbarNav1" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse ms-3" id="navbarNav1">
+				<ul class="navbar-nav">
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown1"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Pages </a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+							<li><a class="dropdown-item" href="/GadgetStore">Home</a></li>
+							<li><a class="dropdown-item" href="/GadgetStore/list-barang">List
+									Barang</a></li>
+							<li><a class="dropdown-item"
+								href="/GadgetStore/tambah-barang">Input Barang</a></li>
+						</ul></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 	<br>
 	<div class="container">
 		<div class="row my-5 justify-content-center">

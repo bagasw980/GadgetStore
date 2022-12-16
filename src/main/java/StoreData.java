@@ -59,6 +59,7 @@ public class StoreData extends HttpServlet {
 			barang.setDeskripsi(deskripsi);
 			barang.setHarga(harga);
 			barang.setHargadiskon(hargadiskon);
+			
 			BarangConnection bC = new BarangConnection();
 			bC.createDataBarang(barang);
 			
